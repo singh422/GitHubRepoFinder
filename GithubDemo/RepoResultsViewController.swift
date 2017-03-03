@@ -9,8 +9,16 @@
 import UIKit
 import MBProgressHUD
 
+
+
+protocol SettingsPresentingViewControllerDelegate: class {
+    func didSaveSettings(settings: GithubRepoSearchSettings)
+    func didCancelSettings()
+}
+
+
 // Main ViewController
-class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SettingsPresentingViewControllerDelegate {
    
     @IBOutlet weak var tableView: UITableView!
 
@@ -53,7 +61,6 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
                 print(repo)
                 
             }
-
             self.repos = newRepos
             self.tableView.reloadData()
             MBProgressHUD.hide(for: self.view, animated: true)
@@ -61,32 +68,6 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
                 print(error)
         })
     }
-}
-
-// SearchBar methods
-extension RepoResultsViewController: UISearchBarDelegate {
-
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.setShowsCancelButton(true, animated: true)
-        return true
-    }
-
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.setShowsCancelButton(false, animated: true)
-        return true
-    }
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-    }
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchSettings.searchString = searchBar.text
-        searchBar.resignFirstResponder()
-        doSearch()
-    }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
@@ -112,6 +93,14 @@ extension RepoResultsViewController: UISearchBarDelegate {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navController = segue.destination as! UINavigationController
+        let vc = navController.topViewController as! SearchSettingsViewController
+        vc.settings = self.searchSettings
+        vc.delegate = self
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         if let repos = repos {
@@ -122,4 +111,47 @@ extension RepoResultsViewController: UISearchBarDelegate {
         return 0
         }
     }
+    
+    func didSaveSettings(settings: GithubRepoSearchSettings) {
+        
+        self.searchSettings = settings
+        doSearch()
+    }
+    
+    func didCancelSettings() {
+        
+    }
+
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
+
+    
+}
+
+// SearchBar methods
+extension RepoResultsViewController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchSettings.searchString = searchBar.text
+        searchBar.resignFirstResponder()
+        doSearch()
+}
 }
