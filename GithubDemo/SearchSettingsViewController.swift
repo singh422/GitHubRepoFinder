@@ -25,6 +25,7 @@ weak var delegate: SettingsPresentingViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         sliderValueLabel.text = "\((settings?.minStars)!)"
+        slider.value = Float((settings?.minStars)!)
         // Do any additional setup after loading the view.
     }
 
@@ -34,12 +35,10 @@ weak var delegate: SettingsPresentingViewControllerDelegate?
     }
     
     @IBAction func onSlide(_ sender: Any) {
-        
-        var multiplier: Double = 100000
         print(slider.value)
         var sliderValue: Double = Double(slider.value)
         if settings != nil{
-        self.settings!.minStars = Int(multiplier * sliderValue)
+        self.settings!.minStars = Int(sliderValue)
         sliderValueLabel.text = "\(settings!.minStars)"
         }
     }

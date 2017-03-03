@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MSO-M3-NTO" id="gM9-1M-puF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gFh-nt-4rI">
@@ -169,7 +169,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-mB-CBN">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100000" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-mB-CBN">
                                 <rect key="frame" x="26" y="120" width="330" height="31"/>
                                 <connections>
                                     <action selector="onSlide:" destination="MeY-JF-kiT" eventType="valueChanged" id="2mK-x5-KN6"/>
