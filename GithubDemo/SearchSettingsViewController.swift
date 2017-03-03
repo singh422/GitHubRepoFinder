@@ -42,7 +42,6 @@ weak var delegate: SettingsPresentingViewControllerDelegate?
         self.settings!.minStars = Int(multiplier * sliderValue)
         sliderValueLabel.text = "\(settings!.minStars)"
         }
-        
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
         

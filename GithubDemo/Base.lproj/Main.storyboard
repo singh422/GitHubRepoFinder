@@ -163,29 +163,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minimum number of stars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQb-8L-A2r">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum number of stars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQb-8L-A2r">
                                 <rect key="frame" x="20" y="79" width="200" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-mB-CBN">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-mB-CBN">
                                 <rect key="frame" x="26" y="120" width="330" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="onSlide:" destination="MeY-JF-kiT" eventType="valueChanged" id="2mK-x5-KN6"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVu-uP-CgL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVu-uP-CgL">
                                 <rect key="frame" x="65" y="183" width="244" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cdt-mB-CBN" secondAttribute="trailing" constant="21" id="4ln-CS-7xZ"/>
+                            <constraint firstItem="nQb-8L-A2r" firstAttribute="top" secondItem="QmR-TE-Sa7" secondAttribute="bottom" constant="15" id="6BG-Cq-jKs"/>
+                            <constraint firstItem="nQb-8L-A2r" firstAttribute="leading" secondItem="rdQ-VM-lMe" secondAttribute="leading" constant="20" id="Asb-Xe-49v"/>
+                            <constraint firstAttribute="trailing" secondItem="OVu-uP-CgL" secondAttribute="trailing" constant="66" id="Iez-1M-SuJ"/>
+                            <constraint firstItem="OVu-uP-CgL" firstAttribute="leading" secondItem="rdQ-VM-lMe" secondAttribute="leading" constant="65" id="Luc-va-sWf"/>
+                            <constraint firstItem="cdt-mB-CBN" firstAttribute="leading" secondItem="rdQ-VM-lMe" secondAttribute="leading" constant="28" id="SMO-6a-JHF"/>
+                            <constraint firstItem="OVu-uP-CgL" firstAttribute="top" secondItem="cdt-mB-CBN" secondAttribute="bottom" constant="33" id="bL2-Mh-bNC"/>
+                            <constraint firstItem="cdt-mB-CBN" firstAttribute="top" secondItem="nQb-8L-A2r" secondAttribute="bottom" constant="20" id="d9S-Tf-Sar"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k4W-ki-qX5">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="BLM-WI-Exu">
